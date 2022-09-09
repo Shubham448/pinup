@@ -1,0 +1,44 @@
+.mainContent {
+    position: relative;
+    padding: 5px;
+    max-width: 1290px;
+    margin: auto;
+    background-color: #262634;
+}
+
+@media (min-width: 1280px) {
+    .mainContent::before {
+        background-image: url(/images/girls-cards-left.jpg) !important;
+        left: calc(50% - 960px);
+        content: "";
+        display: block;
+        width: 319px;
+        height: 100%;
+        position: fixed;
+        top: 0px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: -1;
+    }
+    .mainContent::after {
+        background-image: url(/images/girls-cards-right.jpg) !important;
+        left: calc(50% + 640px);
+        content: "";
+        display: block;
+        width: 319px;
+        height: 100%;
+        position: fixed;
+        top: 0px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: -1;
+        background-position: center;
+    }
+}
+
+@media (max-width: 1280px) {
+    .mainContent::after,
+    .mainContent::before {
+        width: calc((100% - 1280px) / 2);
+    }
+}

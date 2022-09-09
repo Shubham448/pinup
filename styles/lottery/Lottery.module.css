@@ -1,0 +1,39 @@
+.lotteryMainTitle {
+    margin-top: 10px;
+    font-size: 28px;
+    font-family: "Roboto-Bold", sans-serif;
+    color: red;
+    font-weight: 500;
+}
+
+.lotteryBoxTitle {
+    font-size: 24px;
+    font-family: "Roboto-Bold", sans-serif;
+    color: #fff;
+}
+
+.lotteryBox {
+    border: 2px solid #76aa9f;
+    /* border-radius: 10px; */
+    padding: 40px 0;
+}
+
+.lotteryInnerBox {
+    border: 2px solid #76aa9f;
+    /* border-radius: 10px; */
+    padding: 12px 10px;
+}
+
+.lotteryInnerBox h2 {
+    font-size: 22px;
+    font-family: "Roboto-Bold", sans-serif;
+    color: #fff;
+    text-align: center;
+}
+
+.lotteryInnerBox h3 {
+    font-size: 22px;
+    font-family: "Roboto-Bold", sans-serif;
+    color: #fff;
+    text-align: center;
+}

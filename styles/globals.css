@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+body::-webkit-scrollbar {
+    width: 5px;
+    border: 1px solid #d5d5d5;
+}
+
+body::-webkit-scrollbar-track {
+    border-radius: 0;
+    background: #eeeeee;
+}
+
+body::-webkit-scrollbar-thumb {
+    border-radius: 0;
+    background: #686565;
+    border-radius: 10px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.main-content-body {
+    max-width: 1920px !important;
+}
+
+@media (prefers-color-scheme: dark) {
+    html {
+        color-scheme: dark;
+    }
+    body {
+        color: white;
+        background: black;
+    }
+}

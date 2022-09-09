@@ -1,0 +1,54 @@
+.coinIcon {
+    box-shadow: none;
+    text-shadow: none;
+    height: 26px;
+    color: #5f3816;
+    margin-right: 5px;
+    background: #e69308 url("/images/question-brown.svg") no-repeat 10px center;
+    padding: 0;
+    width: 26px;
+    background-position: center center;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 20px;
+    border: 0;
+}
+
+.moneySection {
+    color: #fff;
+    border-radius: 20px;
+    height: 100%;
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #fff;
+}
+
+.moneySection h2 {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.dropDownToggle {
+    width: 42px;
+    height: 100%;
+    border-radius: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    background: url(/images/burger-grey.svg) no-repeat center center;
+    border: 1px solid grey;
+    cursor: pointer;
+}
+
+.dropdownMenu {
+    border-radius: 6px !important;
+    background: #383a3e !important;
+    box-shadow: 10px 10px 20px #000000b3 !important;
+    transform: translate3d(-4.8px, 36px, 0px) !important;
+}
+
+.dropdownMenu li a {
+    color: #ffff !important;
+}

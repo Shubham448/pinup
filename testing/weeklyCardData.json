@@ -1,0 +1,45 @@
+{
+    "weekly": [{
+            "amount": "1 Crore",
+            "prize": "5 Prize",
+            "qrCode": "/images/qrcode.png",
+            "ticketId": "121",
+            "drawDate": "25 Sep, 2022"
+        },
+        {
+            "amount": "50 Lakh",
+            "prize": "2 Prize",
+            "qrCode": "/images/qrcode.png",
+            "ticketId": "158",
+            "drawDate": "25 Sep, 2022"
+        },
+        {
+            "amount": "20 Lakh",
+            "prize": "20 Prize",
+            "qrCode": "/images/qrcode.png",
+            "ticketId": "1891",
+            "drawDate": "25 Sep, 2022"
+        },
+        {
+            "amount": "10 Lakh",
+            "prize": "50 Prize",
+            "qrCode": "/images/qrcode.png",
+            "ticketId": "1245",
+            "drawDate": "25 Sep, 2022"
+        },
+        {
+            "amount": "5 Lakh",
+            "prize": "100 Prize",
+            "qrCode": "/images/qrcode.png",
+            "ticketId": "165",
+            "drawDate": "25 Sep, 2022"
+        },
+        {
+            "amount": "1 Lakh",
+            "prize": "500 Prize",
+            "qrCode": "/images/qrcode.png",
+            "ticketId": "166",
+            "drawDate": "25 Sep, 2022"
+        }
+    ]
+}

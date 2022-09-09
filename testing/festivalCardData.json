@@ -1,0 +1,38 @@
+{
+    "festival": [{
+            "amount": "10 Crore",
+            "prize": "1 Prize",
+            "qrCode": "/images/qrcode.png",
+            "ticketId": "1421",
+            "drawDate": "25 Sep, 2022"
+        },
+        {
+            "amount": "5 Crore",
+            "prize": "2 Prize",
+            "qrCode": "/images/qrcode.png",
+            "ticketId": "1578",
+            "drawDate": "25 Sep, 2022"
+        },
+        {
+            "amount": "1 Crore",
+            "prize": "7 Prize",
+            "qrCode": "/images/qrcode.png",
+            "ticketId": "11221",
+            "drawDate": "25 Sep, 2022"
+        },
+        {
+            "amount": "10 Lakh",
+            "prize": "100 Prize",
+            "qrCode": "/images/qrcode.png",
+            "ticketId": "12851",
+            "drawDate": "25 Sep, 2022"
+        },
+        {
+            "amount": "1 Lakh",
+            "prize": "500 Prize",
+            "qrCode": "/images/qrcode.png",
+            "ticketId": "1241",
+            "drawDate": "25 Sep, 2022"
+        }
+    ]
+}

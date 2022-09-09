@@ -1,0 +1,69 @@
+.modalHeader {
+    background-color: #242424 !important;
+    color: #fff !important;
+}
+
+.modalBodyContent {
+    display: flex;
+    justify-content: center;
+}
+
+.modalBodyInput {
+    display: grid;
+    gap: 8px;
+}
+
+.modalBodyInput input {
+    display: flex;
+    border-radius: 4px;
+    color: #000;
+    align-items: center;
+    width: 300px;
+}
+
+.modalBodyInput a {
+    align-items: center;
+}
+
+.modalContent {
+    background-color: #62605c !important;
+}
+
+.forgetPassword {
+    text-decoration: none;
+    border-bottom: 1px dotted #24ba9d;
+    color: #24ba9d;
+    font-family: "Roboto-Regular", sans-serif;
+    font-size: 14px;
+}
+
+.forgetPassword:hover {
+    text-decoration: none;
+    border-bottom: 1px dotted #24ba9d;
+    color: #24ba9d;
+    font-family: "Roboto-Regular", sans-serif;
+    font-size: 14px;
+}
+
+.loginButton {
+    width: 70%;
+    font-size: 20px;
+    min-width: 200px;
+    background-color: #24ba9d;
+    border: 0;
+    color: #fff;
+    border-radius: 4px;
+    line-height: 22px;
+    position: relative;
+    overflow: hidden;
+    font-family: "Roboto-Medium", sans-serif;
+    padding: 7px 24px;
+}
+
+.newAccount,
+.newAccount:hover {
+    color: #fff;
+    font-family: "Roboto-Regular", sans-serif;
+    font-size: 15px;
+    text-decoration: none;
+}

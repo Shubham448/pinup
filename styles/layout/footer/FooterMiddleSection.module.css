@@ -1,0 +1,83 @@
+.containerInner {
+    background-color: #424242 !important;
+    padding: 10px 12px;
+    border-bottom: 1px solid #777;
+}
+
+.textSection h2 {
+    font-size: 17px;
+    font-family: "Roboto-Bold", sans-serif;
+    color: #fff;
+    font-weight: 600;
+    margin: 0 0 18px 0;
+}
+
+.textSection p {
+    font-size: 0.75em;
+    color: #a9a9a9;
+    font-family: "Roboto-Bold", sans-serif;
+}
+
+.textSectionBottom h2 {
+    font-size: 16px;
+    font-family: "Roboto-Bold", sans-serif;
+    color: #fff;
+    font-weight: 600;
+    margin: 0 0 18px 0;
+}
+
+.textSectionBottom p {
+    font-size: 0.75em;
+    color: #a9a9a9;
+    font-family: "Roboto-Bold", sans-serif;
+}
+
+.benefitListSection {
+    float: right;
+    padding-left: 50px;
+    margin-right: 50px;
+}
+
+.benefitList {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.benefitList li {
+    position: relative;
+    color: #fff;
+    font-size: 12px;
+    font-family: "Roboto-Bold", sans-serif;
+}
+
+.benefitList li::before {
+    position: absolute;
+    left: -18px;
+    top: 10px;
+    content: "";
+    display: inline-block;
+    width: 12px;
+    height: 8px;
+    margin-right: 6px;
+    background-image: url(/images/checked.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+}
+
+.footerLogo {
+    margin: 15px 0 0 0;
+}
+
+@media (max-width: 1080px) {
+    .benefitListSection {
+        margin-right: 50px;
+    }
+}
+
+@media (max-width: 900px) {
+    .benefitListSection {
+        margin-right: 0px;
+    }
+}

@@ -1,0 +1,14 @@
+.containerInner {
+    background-color: #424242 !important;
+    padding: 10px 12px;
+}
+
+.innerContent p {
+    text-align: center;
+    font-size: 0.625em;
+    color: #a9a9a9;
+}
+
+.androidLogo {
+    text-align: center;
+}
