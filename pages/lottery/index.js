@@ -30,7 +30,7 @@ const lottery = () => {
               ))}
             </div>
           </div>
-          <div className={`col-12 mt-4 ${styles.lotteryBox}`}>
+          <div className={`col-12 mt-4 ${styles.lotteryBoxWeekly}`}>
             <h4 className={`text-center ${styles.lotteryBoxTitle}`}>
               Weekly Lottery 2022
             </h4>
