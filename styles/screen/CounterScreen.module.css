@@ -1,0 +1,18 @@
+.screenInner {
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 0px;
+}
+
+.screenInner h2 {
+    font-size: 75px;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .screenInner h2 {
+        font-size: 45px;
+    }
+}
