@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import styles from "../../styles/FestivalCard.module.css";
+import styles from "../../styles/LotteryCard.module.css";
 import PlayLotteryForm from "../modal/playLotteryForm";
-const FestivalCard = ({ customStyles, data }) => {
+const LotteryCard = ({ customStyles, data, lottery }) => {
   return (
     <>
       <div className={`${styles.cardMain}`}>
@@ -48,7 +48,14 @@ const FestivalCard = ({ customStyles, data }) => {
                   Purchase
                 </button>
               ) : (
-                <Link href="/lottery/festival" passHref>
+                <Link
+                  href={
+                    lottery === "weekly"
+                      ? "/lottery/weekly"
+                      : "/lottery/festival"
+                  }
+                  passHref
+                >
                   <button
                     className={`btn btn-success shadow-none ${
                       customStyles
@@ -69,4 +76,4 @@ const FestivalCard = ({ customStyles, data }) => {
   );
 };
 
-export default FestivalCard;
+export default LotteryCard;

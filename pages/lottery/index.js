@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import FestivalCard from "../../components/card/FestivalCard";
-import PlayLotteryForm from "../../components/modal/playLotteryForm";
+import React from "react";
+import LotteryCard from "../../components/card/LotteryCard";
 import styles from "../../styles/lottery/Lottery.module.css";
 import festivalCardData from "../../testing/festivalCardData.json";
 import weeklyCardData from "../../testing/weeklyCardData.json";
@@ -26,7 +25,7 @@ const lottery = () => {
             >
               {festival?.map((item, index) => (
                 <div className="col-md-6 col-12" key={index}>
-                  <FestivalCard data={item} />
+                  <LotteryCard data={item} lottery="festival" />
                 </div>
               ))}
             </div>
@@ -39,19 +38,8 @@ const lottery = () => {
               className={`row px-4 g-3 mt-3 flex-wrap justify-content-around`}
             >
               {weekly?.map((item, index) => (
-                <div className={`col-lg-4 col-sm-6 col-12`} key={index}>
-                  <div className={`text-center ${styles.lotteryInnerBox}`}>
-                    <h2>{item.amount}</h2>
-                    <h3>{item.prize}</h3>
-                    <button
-                      className="btn rounded-0 btn-success shadow-none mt-2"
-                      data-bs-toggle="modal"
-                      data-bs-target="#playLottery"
-                      onClick={() => setLotteryType("festival")}
-                    >
-                      Play and win
-                    </button>
-                  </div>
+                <div className="col-md-6 col-12" key={index}>
+                  <LotteryCard data={item} lottery="weekly" />
                 </div>
               ))}
             </div>
