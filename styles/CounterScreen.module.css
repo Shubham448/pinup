@@ -1,28 +1,12 @@
-.screenInner {
-    background-color: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 100px 0px;
-}
-
-.screenInner h2 {
-    font-size: 75px;
-    color: #fff;
-}
-
-.counterValue {
-    font-size: 55px;
-    color: rgb(0, 0, 0);
-    position: absolute;
-    top: 10px;
-    left: 47%;
+* {
+    margin: 0;
+    padding: 0;
 }
 
 .hero {
-    height: 50vh;
+    height: 100vh;
     width: 100%;
-    background-image: url(/images/sky.jpg);
+    background-image: url(sky.jpg);
     background-size: cover;
     background-position: center;
     position: relative;
@@ -31,9 +15,9 @@
 
 .highway {
     height: 200px;
-    width: 1200%;
+    width: 500%;
     display: block;
-    background-image: url(/images/road.jpg);
+    background-image: url(road.jpg);
     position: absolute;
     bottom: 0;
     left: 0;
@@ -52,7 +36,7 @@
 .city {
     height: 250px;
     width: 500%;
-    background-image: url(/images/city.png);
+    background-image: url(city.png);
     position: absolute;
     bottom: 200px;
     left: 0;
@@ -71,14 +55,16 @@
 
 .bike {
     width: 400px;
+    /* left: 50%; */
     bottom: 0px;
+    /* transform: translateX(-50%); */
     position: absolute;
     z-index: 2;
 }
 
 .bike img {
-    width: 80%;
-    animation: bike linear infinite;
+    width: 100%;
+    animation: bike 5s linear infinite;
 }
 
 @keyframes bike {
@@ -98,7 +84,7 @@
         transform: translateX(-50%);
     }
     20% {
-        transform: translateX(10%);
+        transform: translateX(30%);
     }
     40% {
         transform: translateX(60%);
@@ -110,13 +96,6 @@
         transform: translateX(800%);
     }
     100% {
-        transform: translateX(100%);
-    }
-}
-
-@media (max-width: 500px) {
-    .bike img {
-        width: 70%;
-        animation: bike 5s linear infinite;
+        transform: translateX(2000%);
     }
 }
