@@ -6,12 +6,12 @@ const CounterScreen = () => {
   const [animation, setAnimation] = useState("start");
 
   useEffect(() => {
-    let randomTime = Math.floor(Math.random() * (15 - 1 + 1)) + 1;
+    let randomTime = Math.floor((Math.random() * 15) + 1);
     setTime(randomTime);
   }, [animation]);
 
   useEffect(() => {
-    document.getElementById("bike").style.animationDuration = time + "s";
+    document.getElementById("bike").style.animationDuration = (time + 6) + "s";
   }, [time]);
 
   useEffect(() => {
@@ -20,6 +20,10 @@ const CounterScreen = () => {
     }, 5000);
   }, [animation]);
 
+
+  useEffect(() => {
+    console.log(time)
+  }, [time])
   return (
     <>
       {animation === "start" ? (
