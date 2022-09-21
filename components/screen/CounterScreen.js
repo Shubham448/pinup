@@ -2,17 +2,12 @@ import React, { useEffect, useState } from "react";
 import styles from "../../styles/screen/CounterScreen.module.css";
 import CountUp from "react-countup";
 const CounterScreen = () => {
-  const [time, setTime] = useState(0);
+  const [time] = useState(8.22);
   const [animation, setAnimation] = useState("start");
 
   useEffect(() => {
-    let randomTime = Math.floor((Math.random() * 15) + 1);
-    setTime(randomTime);
+    document.getElementById("bike").style.animationDuration = time + 8 + "s";
   }, [animation]);
-
-  useEffect(() => {
-    document.getElementById("bike").style.animationDuration = (time + 6) + "s";
-  }, [time]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -20,10 +15,15 @@ const CounterScreen = () => {
     }, 5000);
   }, [animation]);
 
+  const showScore = () => {
+    setTimeout(() => {
+      setAnimation("end");
+    }, 2000);
+  };
 
   useEffect(() => {
-    console.log(time)
-  }, [time])
+    console.log(time);
+  }, [time]);
   return (
     <>
       {animation === "start" ? (
@@ -39,9 +39,7 @@ const CounterScreen = () => {
               end={time}
               decimals={2}
               duration={time}
-              onEnd={() => {
-                setAnimation("end");
-              }}
+              onEnd={() => showScore()}
             />
             x
           </h2>

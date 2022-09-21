@@ -78,7 +78,7 @@
 
 .bike img {
     width: 80%;
-    animation: bike forwards;
+    animation: bike infinite;
 }
 
 @keyframes bike {
@@ -95,13 +95,16 @@
 
 @keyframes bike {
     0% {
-        transform: translateX(-100px);
+        transform: translateX(-80%);
     }
-    20% {
-        transform: translateX(100px);
+    50% {
+        transform: translateX(100%);
+    }
+    60% {
+        transform: translateX(1000%);
     }
     100% {
-        transform: translateX(2000px);
+        transform: translateX(2000%);
     }
 }
 
