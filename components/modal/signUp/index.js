@@ -1,10 +1,23 @@
-import { useState } from 'react';
-import styles from '../../../styles/modal/SignUp.module.css';
+import { useState } from "react";
+import styles from "../../../styles/modal/SignUp.module.css";
+import { useForm } from "react-hook-form";
 
 const SignUp = () => {
-  const [selectNav, setSelectNav] = useState("phone");
+  const [formStep, setFormStep] = useState("first");
+  const { register, handleSubmit, watch, formState: { errors, isValid } } = useForm();
+
+  const onSubmit = data => console.log(data);
+
   return (
-    <div className="modal fade" id="signUp" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="signUpModalLabel" aria-hidden="true">
+    <div
+      className="modal fade"
+      id="signUp"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabIndex="-1"
+      aria-labelledby="signUpModalLabel"
+      aria-hidden="true"
+    >
       <div className="modal-dialog modal-dialog-centered">
         <div className={`modal-content ${styles.modalContent}`}>
           <div className={`modal-header ${styles.modalHeader}`}>
@@ -18,75 +31,130 @@ const SignUp = () => {
               aria-label="Close"
             ></button>
           </div>
-          <div className={`${styles.offerSection}`}>
-            <h2>₹25 000 + 250 FS on your 1st deposit</h2>
-          </div>
-          <div className={`${styles.navAndTab}`}>
-            <div className={`col-6  ${styles.navItem} ${selectNav === "phone" && styles.activeNavItem} `} onClick={() => setSelectNav("phone")}>
-              <h2>By Phone</h2>
-            </div>
-            <div className={`col-6 ${styles.navItem} ${selectNav === "email" && styles.activeNavItem} `} onClick={() => setSelectNav("email")}>
-              <h2>By Email</h2>
-            </div>
-          </div>
-          <div className={`modal-body`}>
-            <div className="row g-3 pt-2 d-flex justify-content-center">
-              {
-                selectNav === "email" ?
-                  <>
-                    <div className="col-10">
-                      <input
-                        type="text"
-                        className={`form-control shadow-none`}
-                        placeholder="Enter Email"
-                      />
-                    </div>
-                    <div className="col-10">
-                      <input
-                        type="password"
-                        className={`form-control shadow-none`}
-                        placeholder="Password"
-                      />
-                    </div>
-                  </>
-                  :
-                  <>
 
-                    <div className="col-10">
-                      <h2 className={styles.enterPhone}>Enter your phone number</h2>
-                      <input
-                        type="text"
-                        className={`form-control shadow-none`}
-                        placeholder="Enter Mobile Number"
-                      />
-                    </div>
-                  </>
-              }
-              <div className="col-10 d-flex justify-content-center">
-                <button className={styles.signUpButton}>Sign Up</button>
-              </div>
-              <div className={`col-10 d-flex justify-content-center ${styles.accountExists}`}>
-                <h2>
-                  Already have an account?
-                  <a data-bs-target="#login" data-bs-toggle="modal">Log in</a>
-                </h2>
-              </div>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className={`modal-body`}>
+              <div className="row g-3 pt-2 d-flex justify-content-center">
 
-              <div className={`col-10 mb-3 ${styles.checkBoxSection}`}>
-                <div className={`${styles.checkBox}`}>
-                  <input checked type="checkbox" /> <label>I agreed with the </label>&nbsp;<a>Terms and Conditions</a>
+                <>
+                  <div className="col-10">
+                    <input
+                      type="text"
+                      autoComplete="off"
+                      name="fullName"
+                      className={`form-control shadow-none`}
+                      placeholder="Enter Name"
+                      {...register("fullName", { required: true })}
+                    />
+                  </div>
+                  <div className="col-10">
+                    <input
+                      name="fullName"
+                      type="email"
+                      autoComplete="off"
+                      className={`form-control shadow-none`}
+                      placeholder="Enter Email"
+                      {...register("email", { required: true })}
+                    />
+                  </div>
+                  <div className="col-10">
+                    <input
+                      type="text"
+                      name="city"
+                      autoComplete="off"
+                      className={`form-control shadow-none`}
+                      placeholder="Enter City"
+                      {...register("city", { required: true })}
+                    />
+                  </div>
+                  <div className="col-10">
+                    <input
+                      type="number"
+                      name="pinCode"
+                      autoComplete="off"
+                      className={`form-control shadow-none`}
+                      placeholder="Enter Pin-code"
+                      {...register("postCode", { required: true })}
+                    />
+                  </div>
+                </>
+                <>
+                  <div className="col-10">
+                    <input type="date" className={`form-control shadow-none`} name="date_of_birth"  {...register("date_of_birth", { required: true })} />
+                    <label
+                      className="mt-1 ms-2 text-light"
+                      style={{ fontSize: "15px" }}
+                    >
+                      Select Date of Birth
+                    </label>
+                  </div>
+                  <div className="col-10">
+                    <select className={`form-control shadow-none`} {...register("gender", { required: true })} name="gender">
+                      <option value="" disabled selected>
+                        Select Gender
+                      </option>
+                      <option value="">Male</option>
+                      <option value="">Female</option>
+                    </select>
+                  </div>
+                  <div className="col-10">
+                    <input
+                      name="MobileNumber"
+                      type="number"
+                      autoComplete="off"
+                      className={`form-control shadow-none`}
+                      placeholder="Enter Phone Number"
+                      {...register("mobileNumber", { required: true })}
+                    />
+                  </div>
+                  <div className="col-10">
+                    <input
+                      name="password"
+                      autoComplete="off"
+                      type="password"
+                      className={`form-control shadow-none`}
+                      placeholder="Set Password"
+                      {...register("password", { required: true, })}
+                    />
+                  </div>
+                </>
+                <div className={`col-10 mb-3 ${styles.checkBoxSection}`}>
+                  <div className={`${styles.checkBox}`}>
+                    <input checked type="checkbox" />
+                    <label>I agreed with the </label>&nbsp;
+                    <a>Terms and Conditions</a>
+                  </div>
+                  <div className={`${styles.checkBox}`}>
+                    <input checked type="checkbox" />
+                    <label>
+                      Receive newsletters about promotions by email and text
+                      message
+                    </label>
+                  </div>
                 </div>
-                <div className={`${styles.checkBox}`}>
-                  <input checked type="checkbox" /> <label>Receive newsletters about promotions by email and text message</label>
+                <div className="col-10 text-center">
+                  <button type="submit" className={`${styles.signUpButton}`}>
+                    Sign Up
+                  </button>
                 </div>
-
+                <div
+                  className={`col-10 d-flex justify-content-center ${styles.accountExists
+                    } ${formStep === "first" && "mb-3"}`}
+                >
+                  <h2>
+                    Already have an account?
+                    <a data-bs-target="#login" data-bs-toggle="modal">
+                      Log in
+                    </a>
+                  </h2>
+                </div>
               </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
-    </div>
-  )
-}
+    </div >
+  );
+};
 
-export default SignUp
+export default SignUp;

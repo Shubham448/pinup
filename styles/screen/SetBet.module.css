@@ -1,0 +1,76 @@
+.screenMain {
+    background-image: url("/images/greybg.png");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0px;
+}
+
+.betButton {
+    border: 0;
+    background-color: #28a909;
+    box-shadow: 0 10px 15px -10px #28a909, inset 0 1px 1px #ffffff80;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 1px 2px rgb(0 0 0 / 50%);
+    cursor: pointer;
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    font-size: 25px;
+    padding: 30px 100px;
+    font-weight: 500;
+}
+
+.selectBetPill {
+    -moz-appearance: textfield;
+    -webkit-appearance: none;
+    gap: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: opacity 0.1s;
+    border-radius: 22px;
+    background-color: #000000b3;
+    border: solid 1px #3c3c42;
+    font-weight: 700;
+    font-size: inherit;
+    line-height: 1;
+    padding: 5px 25px;
+    margin: 0;
+    color: #fff;
+}
+
+.setBetBtn {
+    border-radius: 15px;
+    margin: 0;
+    padding: 0;
+    background: #999898;
+    border: none;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    min-width: 20px;
+    min-height: 20px;
+    color: #000000b3;
+    text-align: center;
+    line-height: 16px;
+    font-weight: 700;
+}
+
+.selectBetPill h2 {
+    font-size: 18px;
+    margin: 0;
+    color: #fff;
+    font-size: 24px;
+}
+
+.setMoneyBtn {
+    width: 100%;
+    border: 1px solid #36363c;
+    border-radius: 100px;
+    background-color: #252528;
+    color: #83878e;
+    text-align: center;
+    box-shadow: none;
+}

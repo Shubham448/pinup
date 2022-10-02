@@ -30,6 +30,7 @@
 }
 
 .forgetPassword {
+    cursor: pointer;
     text-decoration: none;
     border-bottom: 1px dotted #24ba9d;
     color: #24ba9d;

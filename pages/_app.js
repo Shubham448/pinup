@@ -1,9 +1,9 @@
-import Layout from "../components/layout";
-import "../styles/globals.css";
 import "bootstrap/dist/css/bootstrap.css";
 import Head from "next/head";
 import { useEffect } from "react";
+import Layout from "../components/layout";
 import styles from "../styles/App.module.css";
+import "../styles/globals.css";
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
     require("bootstrap/dist/js/bootstrap.bundle.min.js");

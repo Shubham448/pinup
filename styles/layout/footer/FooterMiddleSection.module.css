@@ -54,7 +54,7 @@
 .benefitList li::before {
     position: absolute;
     left: -18px;
-    top: 10px;
+    top: 6px;
     content: "";
     display: inline-block;
     width: 12px;

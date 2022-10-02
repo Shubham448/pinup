@@ -1,10 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import styles from "../../styles/FestivalCard.module.css";
+import styles from "../../styles/LotteryCard.module.css";
 import PlayLotteryForm from "../modal/playLotteryForm";
-
-const WeeklyCard = () => {
+const LotteryCard = ({ customStyles, data, lottery }) => {
   return (
     <>
       <div className={`${styles.cardMain}`}>
@@ -12,27 +11,25 @@ const WeeklyCard = () => {
           <div
             className={`col-4 d-flex align-items-center justify-content-center`}
           >
-            <Image src={data?.qrCode} width={200} height={200} />
+            {/* <Image src={process.env.PINUP_API + data?.qrCode} width={200} height={200} /> */}
           </div>
           <div
             className={` text-light col-3 d-flex align-items-center justify-content-center`}
           >
             <div
-              className={`d-block text-center ${
-                customStyles ? styles.middleSectionFlat : styles.middleSection
-              }`}
+              className={`d-block text-center ${customStyles ? styles.middleSectionFlat : styles.middleSection
+                }`}
             >
-              <h2>{data?.amount}</h2>
-              <h3>{data?.prize}</h3>
+              <h2>{data?.winAmount}</h2>
+              <h3>{data?.totalPrize} Prize</h3>
             </div>
           </div>
           <div
             className={` text-light col-5 d-flex align-items-center justify-content-center`}
           >
             <div
-              className={`d-grid text-center d-grid gap-2 ${
-                customStyles ? styles.rightSectionFlat : styles.rightSection
-              }`}
+              className={`d-grid text-center d-grid gap-2 ${customStyles ? styles.rightSectionFlat : styles.rightSection
+                }`}
             >
               <h5>Ticket Id - {data?.ticketId}</h5>
               <h6>
@@ -49,13 +46,19 @@ const WeeklyCard = () => {
                   Purchase
                 </button>
               ) : (
-                <Link href="/lottery/festival" passHref>
+                <Link
+                  href={
+                    lottery === "weekly"
+                      ? "/lottery/weekly"
+                      : "/lottery/festival"
+                  }
+                  passHref
+                >
                   <button
-                    className={`btn btn-success shadow-none ${
-                      customStyles
-                        ? styles.purchaseButtonFlat
-                        : styles.purchaseButton
-                    }`}
+                    className={`btn btn-success shadow-none ${customStyles
+                      ? styles.purchaseButtonFlat
+                      : styles.purchaseButton
+                      }`}
                   >
                     Purchase
                   </button>
@@ -70,4 +73,4 @@ const WeeklyCard = () => {
   );
 };
 
-export default WeeklyCard;
+export default LotteryCard;

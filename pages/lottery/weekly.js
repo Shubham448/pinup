@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 import LotteryCard from "../../components/card/LotteryCard";
-import festivalCardData from "../../testing/festivalCardData.json";
+import weeklyCardData from "../../testing/weeklyCardData.json";
 import axios from "axios"
+const weekly = () => {
+  const { weekly } = weeklyCardData;
 
-const Festival = () => {
-  const [festivalLotteryList, setFestivalLotteryList] = useState();
+  const [weeklyLotteryList, setWeeklyLotteryList] = useState();
 
-
-  const fetchFestivalLottery = async () => {
+  const fetchWeeklyLottery = async () => {
 
     try {
-      const res = await axios.get("https://pin-u.herokuapp.com/v1/festivallottery")
+      const res = await axios.get("https://pin-u.herokuapp.com/v1/worldlottery")
       if (res.status === 200) {
-        setFestivalLotteryList(res.data.data)
+        setWeeklyLotteryList(res.data.data)
       }
     }
     catch (error) {
@@ -20,21 +20,25 @@ const Festival = () => {
     }
   }
 
+  useEffect(() => {
+    fetchWeeklyLottery()
+  }, [])
 
   useEffect(() => {
-    fetchFestivalLottery()
-  }, [])
+    console.log('weeklyLotteryList :>> ', weeklyLotteryList);
+  }, [weeklyLotteryList]);
+
 
   return (
     <>
       <div className="row">
         <div className="col-12 mt-4 text-light text-center">
-          <h4>Play Festival Lottery 2022</h4>
+          <h4>Play Weekly Lottery 2022</h4>
         </div>
       </div>
 
       <div className="row g-3 px-3 py-4 ">
-        {festivalLotteryList?.map((item, id) => (
+        {weeklyLotteryList?.map((item, id) => (
           <div className="col-12" key={id}>
             <LotteryCard customStyles={true} data={item} />
           </div>
@@ -44,4 +48,4 @@ const Festival = () => {
   );
 };
 
-export default Festival;
+export default weekly;
