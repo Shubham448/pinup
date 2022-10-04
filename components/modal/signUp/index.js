@@ -1,8 +1,13 @@
 import { useState } from "react";
 import styles from "../../../styles/modal/SignUp.module.css";
+import { useForm } from "react-hook-form";
 
 const SignUp = () => {
   const [formStep, setFormStep] = useState("first");
+  const { register, handleSubmit, watch, formState: { errors, isValid } } = useForm();
+
+  const onSubmit = data => console.log(data);
+
   return (
     <div
       className="modal fade"
@@ -27,50 +32,55 @@ const SignUp = () => {
             ></button>
           </div>
 
-          <div className={`modal-body`}>
-            <div className="row g-3 pt-2 d-flex justify-content-center">
-              {formStep === "first" ? (
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className={`modal-body`}>
+              <div className="row g-3 pt-2 d-flex justify-content-center">
+
                 <>
                   <div className="col-10">
                     <input
                       type="text"
+                      autoComplete="off"
+                      name="fullName"
                       className={`form-control shadow-none`}
                       placeholder="Enter Name"
+                      {...register("fullName", { required: true })}
                     />
                   </div>
                   <div className="col-10">
                     <input
+                      name="fullName"
                       type="email"
+                      autoComplete="off"
                       className={`form-control shadow-none`}
                       placeholder="Enter Email"
+                      {...register("email", { required: true })}
                     />
                   </div>
                   <div className="col-10">
                     <input
                       type="text"
+                      name="city"
+                      autoComplete="off"
                       className={`form-control shadow-none`}
                       placeholder="Enter City"
+                      {...register("city", { required: true })}
                     />
                   </div>
                   <div className="col-10">
                     <input
                       type="number"
+                      name="pinCode"
+                      autoComplete="off"
                       className={`form-control shadow-none`}
                       placeholder="Enter Pin-code"
-                    />
-                  </div>
-                  <div className="col-10">
-                    <input
-                      type="text"
-                      className={`form-control shadow-none`}
-                      placeholder="Enter Country"
+                      {...register("postCode", { required: true })}
                     />
                   </div>
                 </>
-              ) : (
                 <>
                   <div className="col-10">
-                    <input type="date" className={`form-control shadow-none`} />
+                    <input type="date" className={`form-control shadow-none`} name="date_of_birth"  {...register("date_of_birth", { required: true })} />
                     <label
                       className="mt-1 ms-2 text-light"
                       style={{ fontSize: "15px" }}
@@ -79,7 +89,7 @@ const SignUp = () => {
                     </label>
                   </div>
                   <div className="col-10">
-                    <select className={`form-control shadow-none`}>
+                    <select className={`form-control shadow-none`} {...register("gender", { required: true })} name="gender">
                       <option value="" disabled selected>
                         Select Gender
                       </option>
@@ -89,82 +99,61 @@ const SignUp = () => {
                   </div>
                   <div className="col-10">
                     <input
+                      name="MobileNumber"
                       type="number"
+                      autoComplete="off"
                       className={`form-control shadow-none`}
                       placeholder="Enter Phone Number"
+                      {...register("mobileNumber", { required: true })}
                     />
                   </div>
                   <div className="col-10">
                     <input
+                      name="password"
+                      autoComplete="off"
                       type="password"
                       className={`form-control shadow-none`}
                       placeholder="Set Password"
-                    />
-                  </div>
-                  <div className="col-10">
-                    <input
-                      type="password"
-                      className={`form-control shadow-none`}
-                      placeholder="Re-Enter Password"
+                      {...register("password", { required: true, })}
                     />
                   </div>
                 </>
-              )}
-              {formStep === "second" && (
                 <div className={`col-10 mb-3 ${styles.checkBoxSection}`}>
                   <div className={`${styles.checkBox}`}>
-                    <input checked type="checkbox" />{" "}
+                    <input checked type="checkbox" />
                     <label>I agreed with the </label>&nbsp;
                     <a>Terms and Conditions</a>
                   </div>
                   <div className={`${styles.checkBox}`}>
-                    <input checked type="checkbox" />{" "}
+                    <input checked type="checkbox" />
                     <label>
                       Receive newsletters about promotions by email and text
                       message
                     </label>
                   </div>
                 </div>
-              )}
-              <div className="col-10 text-center">
-                {formStep === "first" ? (
-                  <button
-                    className={styles.signUpButton}
-                    onClick={() => setFormStep("second")}
-                  >
-                    Next
+                <div className="col-10 text-center">
+                  <button type="submit" className={`${styles.signUpButton}`}>
+                    Sign Up
                   </button>
-                ) : (
-                  <>
-                    <button className={`${styles.signUpButton}`}>
-                      Sign Up
-                    </button>
-                    <button
-                      className={`mt-3 ${styles.backButton}`}
-                      onClick={() => setFormStep("first")}
-                    >
-                      Go Back
-                    </button>
-                  </>
-                )}
-              </div>
-              <div
-                className={`col-10 d-flex justify-content-center ${
-                  styles.accountExists
-                } ${formStep === "first" && "mb-3"}`}
-              >
-                <h2>
-                  Already have an account?
-                  <a data-bs-target="#login" data-bs-toggle="modal">
-                    Log in
-                  </a>
-                </h2>
+                </div>
+                <div
+                  className={`col-10 d-flex justify-content-center ${styles.accountExists
+                    } ${formStep === "first" && "mb-3"}`}
+                >
+                  <h2>
+                    Already have an account?
+                    <a data-bs-target="#login" data-bs-toggle="modal">
+                      Log in
+                    </a>
+                  </h2>
+                </div>
               </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 

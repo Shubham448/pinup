@@ -1,12 +1,47 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import LotteryCard from "../../components/card/LotteryCard";
 import styles from "../../styles/lottery/Lottery.module.css";
 import festivalCardData from "../../testing/festivalCardData.json";
 import weeklyCardData from "../../testing/weeklyCardData.json";
 
-const lottery = () => {
-  const { weekly } = weeklyCardData;
-  const { festival } = festivalCardData;
+const Lottery = () => {
+  const [weeklyLotteryList, setWeeklyLotteryList] = useState();
+  const [festivalLotteryList, setFestivalLotteryList] = useState();
+
+  const fetchWeeklyLottery = async () => {
+    try {
+      const res = await axios.get(
+        "https://pin-u.herokuapp.com/v1/worldlottery"
+      );
+      if (res.status === 200) {
+        setWeeklyLotteryList(res.data.data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const fetchFestivalLottery = async () => {
+    try {
+      const res = await axios.get(
+        "https://pin-u.herokuapp.com/v1/festivallottery"
+      );
+      if (res.status === 200) {
+        setFestivalLotteryList(res.data.data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchWeeklyLottery();
+    fetchFestivalLottery();
+  }, []);
+
+  useEffect(() => {
+    console.log("weeklyLotteryList :>> ", weeklyLotteryList);
+  }, [weeklyLotteryList]);
 
   return (
     <div className={`container-fluid`}>
@@ -23,7 +58,7 @@ const lottery = () => {
             <div
               className={`row px-4 g-3 mt-3 flex-wrap justify-content-around`}
             >
-              {festival?.map((item, index) => (
+              {festivalLotteryList?.map((item, index) => (
                 <div className="col-md-6 col-12" key={index}>
                   <LotteryCard data={item} lottery="festival" />
                 </div>
@@ -37,7 +72,7 @@ const lottery = () => {
             <div
               className={`row px-4 g-3 mt-3 flex-wrap justify-content-around`}
             >
-              {weekly?.map((item, index) => (
+              {weeklyLotteryList?.map((item, index) => (
                 <div className="col-md-6 col-12" key={index}>
                   <LotteryCard data={item} lottery="weekly" />
                 </div>
@@ -50,4 +85,4 @@ const lottery = () => {
   );
 };
 
-export default lottery;
+export default Lottery;
