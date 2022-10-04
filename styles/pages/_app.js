@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.css";
 import Head from "next/head";
 import { useEffect } from "react";
-import Layout from "../components/layout";
+import Layout from "../../components/layout";
 import styles from "../styles/App.module.css";
 import "../styles/globals.css";
 function MyApp({ Component, pageProps }) {
