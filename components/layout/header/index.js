@@ -45,7 +45,6 @@ const Header = () => {
               </li>
               <li className="nav-item">
                 <Link href="/aviator">
-
                   <a className="nav-link mt-1" href="#">
                     <Image
                       src="/images/aviator.svg"
@@ -58,7 +57,34 @@ const Header = () => {
               </li>
             </ul>
             <div className="d-flex gap-2">
-              <button
+              <div class="dropdown">
+                <button
+                  class="btn btn-secondary dropdown"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <Image src={"/images/user.png"} width={48} height={48} />
+                </button>
+                <ul class={`dropdown-menu ${styles.dropDown}`}>
+                  <li>
+                    <a class="dropdown-item" href="#">
+                      Profile
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">
+                      Change Password
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">
+                      Logout
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              {/* <button
                 className={`btn shadow-none btn-success ${styles.signInButton}`}
                 data-bs-toggle="modal"
                 data-bs-target="#login"
@@ -71,7 +97,7 @@ const Header = () => {
                 data-bs-target="#signUp"
               >
                 Sign Up
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
