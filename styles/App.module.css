@@ -8,7 +8,7 @@
 
 @media (min-width: 1280px) {
     .mainContent::before {
-        background-image: url(/images/girls-cards-left.jpg) !important;
+        /* background-image: url(/images/girls-cards-left.jpg) !important; */
         left: calc(50% - 960px);
         content: "";
         display: block;
@@ -21,7 +21,7 @@
         z-index: -1;
     }
     .mainContent::after {
-        background-image: url(/images/girls-cards-right.jpg) !important;
+        /* background-image: url(/images/girls-cards-right.jpg) !important; */
         left: calc(50% + 640px);
         content: "";
         display: block;

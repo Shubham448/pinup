@@ -12,7 +12,11 @@ const WeeklyCard = () => {
           <div
             className={`col-4 d-flex align-items-center justify-content-center`}
           >
-            <Image src={data?.qrCode} width={200} height={200} />
+            <Image
+              src={"https://pin-u.herokuapp.com" + data?.qrCode}
+              width={200}
+              height={200}
+            />
           </div>
           <div
             className={` text-light col-3 d-flex align-items-center justify-content-center`}

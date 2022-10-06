@@ -1,6 +1,47 @@
-import styles from "../../../styles/modal/SignIn.module.css";
+import axios from "axios";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import styles from "../../../styles/modal/SignUp.module.css";
 import ResetPassword from "../resetPassword";
 const SignIn = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+    reset,
+    setValue,
+  } = useForm({
+    criteriaMode: "all",
+    mode: "all",
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState();
+
+  const postData = async (formData) => {
+    console.log(formData);
+    reset();
+    try {
+      setLoading(true);
+      const apiUrl = `https://pin-u.herokuapp.com/v1/admin/users`;
+
+      const response = await axios({
+        method: "post",
+
+        url: apiUrl,
+        params: formData,
+        data: formData,
+      });
+      if (response.status === 201) {
+        setSubmitMessage("success");
+      }
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      setSubmitMessage("error");
+    }
+  };
+
   return (
     <>
       <div
@@ -53,7 +94,17 @@ const SignIn = () => {
 
                 <div className="col-10 d-flex justify-content-center">
                   <button className={`mt-2 ${styles.loginButton}`}>
-                    Log in
+                    {loading ? (
+                      <div style={{ padding: "0px 19px" }}>
+                        <Spinner
+                          animation="border"
+                          size="sm"
+                          role="status"
+                        ></Spinner>
+                      </div>
+                    ) : (
+                      "Login"
+                    )}
                   </button>
                 </div>
                 <div className="pb-3 col-10 text-center justify-content-center">
